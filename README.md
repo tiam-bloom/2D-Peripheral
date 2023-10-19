@@ -1,40 +1,14 @@
-<h1>vue-pure-admin精简版（非国际化版本）</h1>
+## 提交规范
 
-[![license](https://img.shields.io/github/license/pure-admin/vue-pure-admin.svg)](LICENSE)
-
-**中文** | [English](./README.en-US.md)
-
-## 介绍
-
-精简版是基于 [vue-pure-admin](https://github.com/pure-admin/vue-pure-admin) 提炼出的架子，包含主体功能，更适合实际项目开发，打包后的大小在全局引入 [element-plus](https://element-plus.org) 的情况下仍然低于 `2.3MB`，并且会永久同步完整版的代码。开启 `brotli` 压缩和 `cdn` 替换本地库模式后，打包大小低于 `350kb`
-
-## 版本选择
-
-当前是非国际化版本，如果您需要国际化版本 [请点击](https://github.com/pure-admin/pure-admin-thin/tree/i18n)
-
-## 配套视频
-
-- [点我查看教程](https://www.bilibili.com/video/BV1kg411v7QT)
-- [点我查看 UI 设计](https://www.bilibili.com/video/BV17g411T7rq)
-
-## 配套保姆级文档
-
-- [查看文档](https://yiming_chang.gitee.io/pure-admin-doc)
-
-## 预览
-
-- [查看预览](https://pure-admin-thin.netlify.app/#/login)
-
-## 维护者
-
-[xiaoxian521](https://github.com/xiaoxian521)
-
-## ⚠️ 注意
-
-- 精简版不接受任何 `issues` 和 `pr`，如果有问题请到完整版 [issues](https://github.com/pure-admin/vue-pure-admin/issues/new/choose) 去提，谢谢！
-
-## 许可证
-
-原则上不收取任何费用及版权，可商用，不过如需二次开源（比如用此平台二次开发并开源，要求前端代码必须开源免费）请联系作者获取许可！（免费，走个记录而已）
-
-[MIT © 2020-present, pure-admin](./LICENSE)
+| 规范名   | 描述                                                    |
+| -------- | ------------------------------------------------------- |
+| docs     | 仅仅修改了文档，比如 README, CHANGELOG, CONTRIBUTE 等等 |
+| chore    | 改变构建流程、或者增加依赖库、工具等                    |
+| feat     | 新增 feature                                            |
+| fix      | 修复 bug                                                |
+| merge    | 合并分之                                                |
+| perf     | 优化相关，比如提升性能、体验                            |
+| refactor | 代码重构，没有加新功能或者修复 bug                      |
+| revert   | 回滚到上一个版本                                        |
+| style    | 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑      |
+| test     | 测试用例，包括单元测试、集成测试等                      |

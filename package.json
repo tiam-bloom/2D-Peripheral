@@ -1,9 +1,9 @@
 {
-  "name": "pure-admin-thin",
+  "name": "2d-peripheral",
   "version": "4.5.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=--max-old-space-size=4096 vite",
+    "dev": "vite",
     "serve": "pnpm dev",
     "build": "rimraf dist && NODE_OPTIONS=--max-old-space-size=8192 vite build",
     "build:staging": "rimraf dist && vite build --mode staging",
@@ -130,6 +130,6 @@
     }
   },
   "repository": "git@github.com:pure-admin/pure-admin-thin.git",
-  "author": "xiaoxian521",
+  "author": "Tiam",
   "license": "MIT"
 }
