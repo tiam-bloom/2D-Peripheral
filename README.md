@@ -12,3 +12,24 @@
 | revert   | 回滚到上一个版本                                        |
 | style    | 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑      |
 | test     | 测试用例，包括单元测试、集成测试等                      |
+
+## 登录
+
+在 axios 配置中`@utils/http`添加基础路径/api
+
+```js
+  baseURL: "/api",
+```
+
+vite.config.ts
+
+```ts
+      proxy: {
+        // http://localhost:8848/api/login -> http://localhost:8080/login
+        "/api": {
+          target: "http://localhost:8080",
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, "")
+        }
+      }
+```
