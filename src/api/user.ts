@@ -18,7 +18,8 @@ export type UserResult = {
 };
 
 export type RefreshTokenResult = {
-  success: boolean;
+  code: number;
+  meg: string;
   data: {
     /** `token` */
     accessToken: string;
