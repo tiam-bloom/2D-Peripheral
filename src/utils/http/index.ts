@@ -13,11 +13,12 @@ import { stringify } from "qs";
 import NProgress from "../progress";
 import { getToken, formatToken } from "@/utils/auth";
 import { useUserStoreHook } from "@/store/modules/user";
+import { message } from "@/utils/message";
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-request-config-1
 const defaultConfig: AxiosRequestConfig = {
   baseURL: "/api",
-  // 请求超时时间
+  // 请求超时时间10s
   timeout: 10000,
   headers: {
     Accept: "application/json, text/plain, */*",
@@ -110,7 +111,10 @@ class PureHttp {
               }
             });
       },
-      error => {
+      // 请求错误处理
+      (error: PureHttpError) => {
+        const msg = `请求超时, ${error.message}`;
+        message(msg, { type: "warning" });
         return Promise.reject(error);
       }
     );
@@ -138,6 +142,9 @@ class PureHttp {
       (error: PureHttpError) => {
         const $error = error;
         $error.isCancelRequest = Axios.isCancel($error);
+        // 响应错误处理
+        const msg = `请求失败, ${error.message}`;
+        message(msg, { type: "warning" });
         // 关闭进度条动画
         NProgress.done();
         // 所有的响应异常 区分来源为取消请求/非取消请求
