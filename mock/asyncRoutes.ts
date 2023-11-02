@@ -35,6 +35,33 @@ const permissionRouter = {
   ]
 };
 
+const userRouter = {
+  path: "/user",
+  meta: {
+    title: "用户管理",
+    icon: "mdi:user",
+    rank: 1
+  },
+  children: [
+    {
+      path: "/user/index",
+      name: "userIndex",
+      meta: {
+        title: "用户管理",
+        roles: ["admin"]
+      }
+    },
+    {
+      path: "/user/role",
+      name: "roleIndex",
+      meta: {
+        title: "角色管理",
+        roles: ["admin"]
+      }
+    }
+  ]
+};
+
 export default [
   {
     url: "/api/getAsyncRoutes",
@@ -42,7 +69,7 @@ export default [
     response: () => {
       return {
         success: true,
-        data: [permissionRouter]
+        data: [permissionRouter, userRouter]
       };
     }
   }
