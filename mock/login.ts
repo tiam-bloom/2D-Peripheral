@@ -8,26 +8,15 @@ export default [
     response: ({ body }) => {
       if (body.username === "admin") {
         return {
-          success: true,
+          code: 200,
+          msg: "登录成功",
           data: {
+            accessToken:
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwianRpIjoiMDdhNDgzMzEtMjQwZC00OTliLWIxNDUtY2MwMWZlZjc2ZWNkIiwiZXhwIjoxNjk4OTQyMTg4LCJpYXQiOjE2OTg5MTY5ODgsInN1YiI6IlBlcmlwaGVyYWxzIiwiaXNzIjoiVGlhbSJ9.spK_BOm0LpJ_pDeMftZYFdFLm0GdR9AGeYo-587L5E8",
+            refreshToken: "6c821244-b528-4258-a731-1ba3dfb1b51e",
+            expire: 1698942188956,
             username: "admin",
-            // 一个用户可能有多个角色
-            roles: ["admin"],
-            accessToken: "eyJhbGciOiJIUzUxMiJ9.admin",
-            refreshToken: "eyJhbGciOiJIUzUxMiJ9.adminRefresh",
-            expires: "2023/10/30 00:00:00"
-          }
-        };
-      } else {
-        return {
-          success: true,
-          data: {
-            username: "common",
-            // 一个用户可能有多个角色
-            roles: ["common"],
-            accessToken: "eyJhbGciOiJIUzUxMiJ9.common",
-            refreshToken: "eyJhbGciOiJIUzUxMiJ9.commonRefresh",
-            expires: "2023/10/30 00:00:00"
+            role: "admin"
           }
         };
       }
