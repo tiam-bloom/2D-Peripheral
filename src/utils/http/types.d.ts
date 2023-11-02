@@ -45,3 +45,20 @@ export default class PureHttp {
     config?: PureHttpRequestConfig
   ): Promise<P>;
 }
+
+export interface Token {
+  accessToken: string;
+  refreshToken: string;
+  expire: number;
+}
+
+export interface LoginToken extends Token {
+  username?: string;
+  role?: string;
+}
+
+export interface Result<T> {
+  code: number;
+  msg: string;
+  data: T;
+}

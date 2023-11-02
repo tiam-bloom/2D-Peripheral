@@ -1,5 +1,6 @@
-import { removeToken, setToken, type DataInfo } from "./auth";
+import { removeToken, setToken } from "./auth";
 import { subBefore, getQueryMap } from "@pureadmin/utils";
+import { LoginToken } from "@/utils/http/types";
 
 /**
  * 简版前端单点登录，根据实际业务自行编写
@@ -12,7 +13,7 @@ import { subBefore, getQueryMap } from "@pureadmin/utils";
  */
 (function () {
   // 获取 url 中的参数
-  const params = getQueryMap(location.href) as DataInfo<Date>;
+  const params: LoginToken = getQueryMap(location.href) as LoginToken;
   const must = ["username", "roles", "accessToken"];
   const mustLength = must.length;
   if (Object.keys(params).length !== mustLength) return;
@@ -40,7 +41,7 @@ import { subBefore, getQueryMap } from "@pureadmin/utils";
     setToken(params);
 
     // 删除不需要显示在 url 的参数
-    delete params["roles"];
+    delete params["role"];
     delete params["accessToken"];
 
     const newUrl = `${location.origin}${location.pathname}${subBefore(

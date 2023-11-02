@@ -34,7 +34,8 @@ const { title } = useNav();
 
 const ruleForm = reactive({
   username: "admin",
-  password: "admin123"
+  password: "admin123",
+  roleId: 1
 });
 
 const onLogin = async (formEl: FormInstance | undefined) => {
@@ -43,7 +44,7 @@ const onLogin = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       useUserStoreHook()
-        .loginByUsername({ username: ruleForm.username, password: "admin123" })
+        .loginByUsername(ruleForm)
         .then(res => {
           if (res.code === 200) {
             // 获取后端路由
