@@ -3,23 +3,19 @@ import { MockMethod } from "vite-plugin-mock";
 // 模拟刷新token接口
 export default [
   {
-    url: "/refreshToken1",
+    url: "/api/refreshToken",
     method: "post",
     response: ({ body }) => {
       if (body.refreshToken) {
         return {
-          success: true,
+          code: 200,
+          msg: "刷新成功",
           data: {
-            accessToken: "eyJhbGciOiJIUzUxMiJ9.newAdmin",
-            refreshToken: "eyJhbGciOiJIUzUxMiJ9.newAdminRefresh",
-            // `expires`选择这种日期格式是为了方便调试，后端直接设置时间戳或许更方便（每次都应该递增）。如果后端返回的是时间戳格式，前端开发请来到这个目录`src/utils/auth.ts`，把第`38`行的代码换成expires = data.expires即可。
-            expires: "2023/10/30 23:59:59"
+            accessToken:
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRpYW0iLCJyb2xlIjoiY29tbW9uIiwianRpIjoiNzk5YzhmZjQtMGM4NS00NjNiLWFhYTUtYTkxMzdjMDY2MDUzIiwiZXhwIjoxNjk5MDEzODQ4LCJpYXQiOjE2OTg5ODg2NDgsInN1YiI6IlBlcmlwaGVyYWxzIiwiaXNzIjoiVGlhbSJ9.C--TQIcyCf_LwsuZRY5Zgc3xi5ZNAkQ4yYSrMSctQBE",
+            refreshToken: "f4eb1dfd-9718-43d4-b721-20122578c7f2",
+            expire: 1699013848275
           }
-        };
-      } else {
-        return {
-          success: false,
-          data: {}
         };
       }
     }
